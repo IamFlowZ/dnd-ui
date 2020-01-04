@@ -1,25 +1,60 @@
 import React from 'react';
-import logo from './logo.svg';
+import {BrowserRouter as Router, 
+  Switch, 
+  Route, 
+  Link
+} from 'react-router-dom'
+import ApolloClient from 'apollo-boost'
+import { ApolloProvider } from '@apollo/react-hooks'
 import './App.css';
+
+import About from './components/about'
+import Topics from './components/topics'
+import Proficiencies from './components/character/proficiencies';
+
+const client = new ApolloClient({
+  uri: "http://localhost:4000"
+})
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ApolloProvider client={client}>
+      <Router>
+        <div>
+          <nav>
+            <ul style={{flex: 1}} className="navList">
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="about">About</Link>
+              </li>
+              <li>
+                <Link to="topics">Topics</Link>
+              </li>
+              <li>
+                <Link to="/profs">Proficencies</Link>
+              </li>
+            </ul>
+          </nav>
+          <Switch>
+            <Route path="/about">
+              <About />
+            </Route>
+            <Route path="/topics">
+              <Topics />
+            </Route>
+            <Route path="/profs">
+              <Proficiencies />
+            </Route>
+            <Route path="/">
+              <h2>Home</h2>
+            </Route>
+          </Switch>
+        </div>
+      </Router>
+    </ApolloProvider>
+    
   );
 }
 
