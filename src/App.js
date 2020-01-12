@@ -11,6 +11,7 @@ import './App.css';
 import About from './components/about'
 import Topics from './components/topics'
 import Proficiencies from './components/character/proficiencies';
+import ConditionsTable from './components/character/conditions'
 
 const client = new ApolloClient({
   uri: "http://localhost:4000"
@@ -35,6 +36,9 @@ function App() {
               <li>
                 <Link to="/profs">Proficencies</Link>
               </li>
+              <li>
+                <Link to="/conds">Conditions</Link>
+              </li>
             </ul>
           </nav>
           <Switch>
@@ -46,6 +50,9 @@ function App() {
             </Route>
             <Route path="/profs">
               <Proficiencies />
+            </Route>
+            <Route path="/conds">
+              <ConditionsTable />
             </Route>
             <Route path="/">
               <h2>Home</h2>
