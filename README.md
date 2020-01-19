@@ -1,5 +1,5 @@
 # DnD 5e UI
-UI for accessing Dungeons and Dragons fifth edition reference material
+UI for accessing Dungeons and Dragons fifth edition reference material. A [GRANDStack](https://grandstack.io/) application. You can see the other half at [dnd-graphql](https://github.com/IamFlowZ/dnd-graphql)
 
 # Prerequisites
 * Node 8.x>
