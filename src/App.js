@@ -14,7 +14,7 @@ import Proficiencies from './components/character/proficiencies';
 import ConditionsTable from './components/character/conditions'
 
 const client = new ApolloClient({
-  uri: "http://localhost:4000"
+  uri: "http://localhost:4000/graphql"
 })
 
 function App() {
